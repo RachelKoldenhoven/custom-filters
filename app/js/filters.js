@@ -1,7 +1,7 @@
 //convert snake_case to kebab-case
 app.filter('kebab', function () {
-  return function(input){
-    return input
+  return function (input) {
+    return input.replace(/_/g, "-");
   }
 });
 
@@ -9,23 +9,37 @@ app.filter('kebab', function () {
 //Returns an acronym
 app.filter('acronym', function() {
   return function(input){
-    return input
+    return input;
   }
 });
 
 
-//Alternates capitialization of string
+//Alternates capitalization of string
 app.filter('aLtCaPs', function() {
   return function(input){
-    return input
+    var strArr = input.split("");
+    for(var i=0; i < strArr.length; i++) {
+      if (i % 2) {
+        strArr[i] = strArr[i].toLowerCase();
+      } else {
+        strArr[i] = strArr[i].toUpperCase();
+      }
+    }
+    return strArr.join("");
   }
 });
 
 
 //Use with ng-repeat and filter the collection
-app.filter('startsWithA', function () {
+app.filter('startsWithZ', function () {
   return function(input) {
-    return input
+    var result = [];
+    for(var i = 0; i < input.length; i++){
+      if(input[i].name.charAt(0) === "Z") {
+        result.push(input[i]);
+      }
+    }
+    return result;
   }
 });
 

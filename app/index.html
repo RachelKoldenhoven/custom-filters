@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en" ng-app='myApp'>
 <head>
-  <meta charset="UTF-8">
-  <title>Angular Boilerplate</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta charset="UTF-8">
+    <title>Custom Filters</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
-  <body>
-    <div class="container">
-      <div ng-controller="myController">
+<body>
+<div class="container">
+    <div ng-controller="myController">
         <br>
 
         <div>snake_case -> kebab-case</div>
@@ -17,37 +17,50 @@
 
         <div>Acronym Generator</div>
         <input type='text' ng-model="acronym">
-        <div>{{acronym | acronym}}
+        <div>{{acronym | acronym}}</div>
         <br>
 
         <div>aLtCaPs CoNvErTeR</div>
         <input type='text' ng-model="altcaps">
-        <div>{{altcaps | aLtCaPs}}
+        <div>{{altcaps | aLtCaPs}}</div>
         <br>
 
         <div> Starts with A:
-        <ul>
-          <li ng-repeat="friend in friends | startsWithA">
-            {{ friend.name }}
-          </li>
-        </ul>
-        <br>
+            <ul>
+                <li ng-repeat="friend in friends | startsWithZ">
+                    {{ friend.name }}
+                </li>
+            </ul>
+            <br>
+        </div>
 
         <div> Search collection:
-        <input type="text" ng-model="letter">
-        <ul>
-          <li ng-repeat="friend in friends | strMatch:letter">
-            {{ friend.name }}
-          </li>
-        </ul>
-
-      </div>
+            <input type="text" ng-model="letter">
+            <ul>
+                <li ng-repeat="friend in friends | strMatch:letter">
+                    {{ friend.name }}
+                </li>
+            </ul>
+        </div>
     </div>
+
+
+    <div class="container">
+        <div ng-controller="zenController">
+                <p>Zen wisdom: {{ zenData }}</p>
+
+            <ol>Jack Johnson Songs</ol>
+            <li ng-repeat="item in musicData">{{ item.trackName }}</li>
+
+        </div>
+
+        </div>
+
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js" type="text/javascript"></script>
     <script src="./js/app.js" type="text/javascript"></script>
     <script src="./js/controllers.js" type="text/javascript"></script>
     <script src="./js/filters.js" type="text/javascript"></script>
-  </body>
+</body>
 </html>

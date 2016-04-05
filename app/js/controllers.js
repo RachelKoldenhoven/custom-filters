@@ -16,3 +16,17 @@ app.controller('myController', function($scope) {
   ];
 
 });
+
+
+app.controller('zenController', function($scope, $http){
+
+
+  $http.get('https://api.github.com/zen').then(function(data){
+    $scope.zenData = data.data;
+  });
+
+  $http.get('../app/music.json').then(function(data) {
+    $scope.musicData = data.data.results;
+  })
+
+});
